@@ -21,7 +21,7 @@ To add your file to the Windows Startup folder, you can follow these steps:
 2. Right-click on your file and select "Create shortcut".
 3. Right-click on the shortcut and select "Cut".
 4. Press the Windows key + R to open the Run dialog box.
-5. Type "shell:startup" (without quotes) and press Enter. This will open the Startup folder.
+5. Type `shell:startup` and press Enter. This will open the Startup folder.
 6. Right-click inside the Startup folder and select "Paste". This will paste your shortcut into the Startup folder.
 7. Restart your computer to see if your file runs automatically at startup.
 
