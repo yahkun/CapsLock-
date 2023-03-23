@@ -22,8 +22,7 @@ g_DoNotAbortSendEsc := true
 Send {LControl Down}
 KeyWait, CapsLock
 Send {LControl Up}
-if ( A_PriorKey = "CapsLock")
-{
+if ( A_PriorKey = "CapsLock") {
     Interval := A_TickCount - StartTime
 	if(g_DoNotAbortSendEsc && (Interval < EscThreshold)) {
 		Send {Esc}
