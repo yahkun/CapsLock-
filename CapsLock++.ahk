@@ -1,15 +1,18 @@
-; CpasLock Enchancer (aka Capslock++) All CopyRights Not Reserved
+; CapsLock Enchancer (aka Capslock++) All CopyRights Not Reserved
 ; Features:
 ; - [x] Press Caps alone and hold less then 150ms ==> Esc (Modify the Threshold as you like)
-; - [x] Press Caps alone and hold more then 150ms ==> Caps (Modify the Threshold as you like)
+; - [x] Press Caps alone and hold more then 150ms but less them 1s ==> Caps (Modify the Threshold as you like)
+; - [x] Press Caps alone and hold more than 1s ==> Nothing will happen.
 ; - [x] Press Caps with other keys ==> LCtrl
 
 #NoEnv                      ; Recommended for performance and compatibility with future AutoHotkey releases.
 #SingleInstance FORCE       ; Skip invocation dialog box and silently replace previously executing instance of this script.
 SendMode Input              ; Recommended for new scripts due to its superior speed and reliability.
 
-Threshold := 150
+EscThreshold := 150
+CapsThreshold := 1000
 g_AbortSendEsc := false
+
 
 #InstallKeybdHook
 SetCapsLockState, alwaysoff
@@ -21,11 +24,12 @@ KeyWait, CapsLock
 Send {LControl Up}
 if ( A_PriorKey = "CapsLock")
 {
-	if(g_DoNotAbortSendEsc && (A_TickCount - StartTime < Threshold)) {
+    Interval := A_TickCount - StartTime
+	if(g_DoNotAbortSendEsc && (Interval < EscThreshold)) {
 		Send {Esc}
-	} Else {
+	} else if (Interval < CapsThreshold) {
         SetCapsLockState, % (State:=!State) ? "on" : "alwaysoff"
-    }
+    } else {}
 }
 return
 
@@ -98,5 +102,6 @@ return
 ~*^F10::
 ~*^F11::
 ~*^F12::
+~*^+::
     g_DoNotAbortSendEsc := false
     return
