@@ -1,5 +1,5 @@
-; Capslock++ All CopyRights Not Reserved
-; Functions:
+; CpasLock Enchancer (aka Capslock++) All CopyRights Not Reserved
+; Features:
 ; - [x] Press Caps alone and hold less then 150ms ==> Esc (Modify the Threshold as you like)
 ; - [x] Press Caps alone and hold more then 150ms ==> Caps (Modify the Threshold as you like)
 ; - [x] Press Caps with other keys ==> LCtrl
