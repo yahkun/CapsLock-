@@ -1,6 +1,6 @@
 # CapsLock Enhancer (aka CapsLock++)
 
-CapsLock Enhancer is a powerful tool that enhances and powers the CapsLock key on your keyboard. 
+Enhance your typing experience with this CapsLock Enhancer! Extremely friendly to Vim and Emacs users👏
 
 ## Installation
 
